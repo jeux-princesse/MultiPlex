@@ -39,9 +39,9 @@ public class BoardManager {
 			for(int j = 0; j<widht ; j++) {
 				line+=" |";
 			}
-			System.out.println(line);
-			System.out.println(lastLine);
+			System.out.println(line);		
 		}
+		System.out.println(lastLine);
 	}
 	
 	public void reset() {
