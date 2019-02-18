@@ -1,15 +1,16 @@
 package global;
 
 public abstract class Piece {
-	private int[] coord = new int[2];
+	private int[] coord = {0,0};
 	private char skin;
 	private boolean color;
 	private int[] lastCoord;
 	
 	public Piece(int[] coord,char skin,boolean color) {
-		this.coord = coord;
-		this.skin = skin;
-		this.color = color;
+		this.setCoord(coord);
+		this.setLastCoord(coord);
+		this.setSkin(skin);
+		this.setColor(color);
 	}
 	//**********************
 	
@@ -28,6 +29,7 @@ public abstract class Piece {
 	}
 
 	public void setCoord(int[] coord) {
+		this.setLastCoord(this.coord);
 		this.coord = coord;
 	}
 

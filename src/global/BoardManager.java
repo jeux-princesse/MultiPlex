@@ -8,9 +8,14 @@ public class BoardManager {
 		if(widht>26) {
 			widht = 26;
 		}
-		this.setBoard(height, widht);
+		this.setEmptyBoard(height, widht);
 		this.reset();
 		
+	}
+	
+	public BoardManager(char[][] board) {
+		this(board.length, board[0].length);
+		this.setBoard(board);
 	}
 	
 	public void show() {
@@ -37,7 +42,7 @@ public class BoardManager {
 			}
 			line+="|";
 			for(int j = 0; j<widht ; j++) {
-				line+=" |";
+				line+=board[i][j]+"|";
 			}
 			System.out.println(line);		
 		}
@@ -53,14 +58,27 @@ public class BoardManager {
 	}
 	
 	public void insert(Piece piece) {
+		this.board[piece.getLastCoord()[0]][piece.getLastCoord()[1]] = ' ';
 		this.board[piece.getCoord()[0]][piece.getCoord()[1]] = piece.getSkin();
 	}
 	
-	public void setBoard(int height, int widht) {
+	
+	public void setEmptyBoard(int height, int widht) {
 		this.board = new char[height][];
 		for(int i=0;i<height;i++) {
 			this.board[i] = new char[widht];
 		}
+	}
+	
+	public void setBoard(char[][] board) {
+		for(int i = 0 ; i<board.length ; i++) {
+			if(board[i].length!=this.board[0].length) {
+				System.err.println("Matrice invalide !");
+				setEmptyBoard(board.length, board[0].length);
+				return;
+			}
+		}	
+		this.board = board;
 	}
 	
 	
