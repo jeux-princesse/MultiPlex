@@ -3,12 +3,16 @@ package global;
 public abstract class Piece {
 	private int[] coord = new int[2];
 	private char skin;
+	private boolean color;
 	
-	public Piece() {
-		
+	public Piece(int[] coord,char skin,boolean color) {
+		this.coord = coord;
+		this.skin = skin;
+		this.color = color;
 	}
 	//**********************
 	
+	public abstract void mouve() ;
 	
 	
 	
@@ -31,5 +35,13 @@ public abstract class Piece {
 
 	public void setSkin(char skin) {
 		this.skin = skin;
+	}
+	
+	public boolean getColor() {
+		return color;
+	}
+	
+	public void setColor(boolean color) {
+		this.color = color;
 	}
 }
