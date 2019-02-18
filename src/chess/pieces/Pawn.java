@@ -12,6 +12,11 @@ public class Pawn extends Piece{
 	@Override
 	public void move() {
 		
+	}
+
+	@Override
+	public void targetable() {
+		
 		
 	}
 	
