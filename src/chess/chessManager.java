@@ -10,7 +10,7 @@ public class chessManager {
 	private int pointB;
 	private int pointW;
 	
-	public chessManager();{
+	public chessManager(){
 		
 	}
 	
