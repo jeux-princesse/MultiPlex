@@ -2,12 +2,12 @@ package global;
 
 public abstract class Piece {
 	private int[] coord = new int[2];
-	private String skin;
+	private char skin;
 	
 	public Piece() {
 		
 	}
-
+	//**********************
 	
 	
 	
@@ -16,7 +16,7 @@ public abstract class Piece {
 	
 	
 	
-	
+	//*********************
 	public int[] getCoord() {
 		return coord;
 	}
@@ -25,11 +25,11 @@ public abstract class Piece {
 		this.coord = coord;
 	}
 
-	public String getSkin() {
+	public char getSkin() {
 		return skin;
 	}
 
-	public void setSkin(String skin) {
+	public void setSkin(char skin) {
 		this.skin = skin;
 	}
 }
