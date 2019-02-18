@@ -4,6 +4,7 @@ public abstract class Piece {
 	private int[] coord = new int[2];
 	private char skin;
 	private boolean color;
+	private int[] lastCoord;
 	
 	public Piece(int[] coord,char skin,boolean color) {
 		this.coord = coord;
@@ -44,5 +45,12 @@ public abstract class Piece {
 	
 	public void setColor(boolean color) {
 		this.color = color;
+	}
+	public int[] getLastCoord() {
+		return lastCoord;
+	}
+
+	public void setLastCoord(int[] coord) {
+		this.lastCoord = coord;
 	}
 }
