@@ -12,7 +12,7 @@ public abstract class Piece {
 	}
 	//**********************
 	
-	public abstract void mouve() ;
+	public abstract void move() ;
 	
 	
 	
