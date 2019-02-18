@@ -2,7 +2,7 @@ package global;
 
 import java.util.Arrays;
 
-public class BoardManager <T extends Object>{
+public class BoardManager <T>{
 	private T[][] board;
 	
 	@SuppressWarnings("unchecked")
