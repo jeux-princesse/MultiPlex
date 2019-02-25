@@ -1,20 +1,21 @@
 package chess.pieces;
 
+import chess.ChessSkin;
+import global.ColorEnum;
 import global.Piece;
 
-public class Pawn extends Piece{
+public class Pawn extends ChessPiece implements ChessSkin{
 
-	public Pawn(int[] coord, char skin, boolean color) {
-		super(coord, skin, color);
-		// TODO Auto-generated constructor stub
+	public Pawn(ColorEnum color) {
+		super('\u0000', color);
+		if(color.equals(ColorEnum.BLACK)) this.setSkin(BPAWN);
+		else if (color.equals(ColorEnum.WHITE)) this.setSkin(WPAWN);
 	}
 
-	@Override
 	public void move() {
 		
 	}
 
-	@Override
 	public void targetable() {
 		
 		

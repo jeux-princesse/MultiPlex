@@ -1,7 +1,7 @@
 package global;
 
 public class BoardManager {
-	private char[][] board;
+	private Piece[][] board;
 	private final char[] letters= {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
 	
 	public BoardManager(int height, int widht) {
@@ -13,7 +13,7 @@ public class BoardManager {
 		
 	}
 	
-	public BoardManager(char[][] board) {
+	public BoardManager(Piece[][] board) {
 		this(board.length, board[0].length);
 		this.setBoard(board);
 	}
@@ -42,7 +42,7 @@ public class BoardManager {
 			}
 			line+="|";
 			for(int j = 0; j<widht ; j++) {
-				line+=board[i][j]+"|";
+				line+=board[i][j].getSkin()+"|";
 			}
 			System.out.println(line);		
 		}
@@ -52,25 +52,24 @@ public class BoardManager {
 	public void reset() {
 		for(int i = 0 ; i<board.length; i++) {
 			for(int j = 0; j<board[i].length; j++) {
-				this.board[i][j] = ' ';
+				this.insert(new EmptyPiece(), i, j);
 			}
 		}
 	}
 	
-	public void insert(Piece piece) {
-		this.board[piece.getLastCoord()[0]][piece.getLastCoord()[1]] = ' ';
-		this.board[piece.getCoord()[0]][piece.getCoord()[1]] = piece.getSkin();
+	public void insert(Piece piece, int x, int y) {
+		this.board[x][y] = piece;
 	}
 	
 	
 	public void setEmptyBoard(int height, int widht) {
-		this.board = new char[height][];
+		this.board = new Piece[height][];
 		for(int i=0;i<height;i++) {
-			this.board[i] = new char[widht];
+			this.board[i] = new Piece[widht];
 		}
 	}
 	
-	public void setBoard(char[][] board) {
+	public void setBoard(Piece[][] board) {
 		for(int i = 0 ; i<board.length ; i++) {
 			if(board[i].length!=this.board[0].length) {
 				System.err.println("Matrice invalide !");
@@ -79,6 +78,10 @@ public class BoardManager {
 			}
 		}	
 		this.board = board;
+	}
+	
+	public Piece[][] getBoard(){
+		return this.board;
 	}
 	
 	

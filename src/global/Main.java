@@ -1,11 +1,11 @@
 package global;
 
+import chess.ChessUtils;
+
 public class Main {
 
 	public static void main(String[] args) {
-		char[][] board = {{'a','b','c'},
-						{'d','f'}};
-		BoardManager bm = new BoardManager(board);
+		BoardManager bm = new BoardManager(ChessUtils.genBoard());
 		bm.show();
 
 	}
